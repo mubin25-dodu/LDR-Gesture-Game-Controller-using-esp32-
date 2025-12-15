@@ -26,6 +26,7 @@
         #gameContainer {
             text-align: center;
             position: relative;
+            display: inline-block;
         }
 
         #gameCanvas {
@@ -36,6 +37,8 @@
             box-shadow: 0 0 40px rgba(0, 255, 255, 0.2),
                         inset 0 0 40px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
+            position: relative;
+            z-index: 2;
         }
 
         #score {
@@ -115,15 +118,29 @@
             0%, 100% { transform: translate(0, 0); }
             50% { transform: translate(20px, -20px); }
         }
+        #ldr{
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            top: 40.1%;
+            left: 27.3%;
+            position: absolute;
+            pointer-events: none;
+            background-color: rgba(218, 255, 255, 0.068);
+            z-index: 3;
+        }
     </style>
 </head>
 <body>
     <div class="glow" style="top: 10%; left: 20%;"></div>
     <div class="glow" style="top: 60%; right: 10%; animation-delay: 3s;"></div>
     
-    <div id="gameContainer">
+    <div id="gameContainer">                
         <canvas id="gameCanvas" width="900" height="400"></canvas>
+        <div id="ldr"></div>
         <div id="score">SCORE: 0</div>
+       
         <div id="highScore">HIGH SCORE: 0</div>
         <div id="instructions">
             🚀 <strong>COSMIC RUNNER</strong> 🌌<br>
@@ -251,6 +268,10 @@
                 if (star.opacity > 1 || star.opacity < 0.3) {
                     star.twinkleSpeed *= -1;
                 }
+                
+                // Hide stars in the LDR area (520-540px x, 100-120px y)
+                const inLdrArea = star.x >= 520 && star.x <= 540 && star.y >= 100 && star.y <= 120;
+                if (inLdrArea) return;
                 
                 ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
                 ctx.beginPath();
