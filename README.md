@@ -1,4 +1,5 @@
 # 🚀 Cosmic Runner ESP32 - Gesture-Controlled Space Game
+#The game was made to test the project (using full AI, with no self-coding).
 
 ![Platform](https://img.shields.io/badge/platform-ESP32-blue)
 ![Framework](https://img.shields.io/badge/framework-Arduino-00979D)
