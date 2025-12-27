@@ -6,10 +6,9 @@
 
 **Project Title:** Light Fidelity (Li-Fi) Communication System with Morse Code Encoding Using LDR and ESP32 Microcontroller
 
-**Author:** [Your Name]  
-**Institution:** [Your Institution]  
+**Author:**  
+**Institution:** 
 **Date:** December 27, 2025  
-**Project Repository:** mubin25-dodu/LDR-Gesture-Game-Controller-using-esp32-
 
 ---
 
